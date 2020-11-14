@@ -1,0 +1,14 @@
+# Local .terraform directories
+create_backend/.terraform/*
+create_eks/.terraform/*
+create_node_group/.terraform/*
+
+# .tfstate files
+create_backend/*.tfstate*
+create_eks/*.tfstate*
+create_node_group/*.tfstate*
+
+# .out files
+create_backend/*.out
+create_eks/*.out
+create_node_group/*.out
