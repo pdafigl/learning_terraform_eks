@@ -21,6 +21,7 @@ Para poder lanzar todos los componentes, será necesario disponer de un usuario 
 - EC2
 - EKS
 - IAM
+
 Ya que se crearán y gestionarán elementos dentro de todos esos servicios. El usuario debe ser un usuario para poder lanzar la API, no de acceso a la consola de AWS. y deberá disponer de un **access key** y un **secret key** válidos. Para facilitar la configuración de estos elementos pra una prueba inicial, sin pararse a ver permisos concretos y más limitados, se puede crear un usuario con rol de **administrador**.
 
 # Notas
