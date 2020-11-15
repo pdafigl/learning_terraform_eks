@@ -73,7 +73,7 @@ terraform apply archivo.out
 
 Al finalizar el despliegue, se mostrarán una serie de salidas por pantalla, asociadas a los outputs definidos en el archivo **output.tf**. Estos valores toman más valor por lo comentado, el estado de este despliegue se usará como entrada de datos para el despliegue de grupos de nodo, y los valores a utilizar se toman de los outputs. Además, hay dos salidas que se usarán para crear un kubeconfig asociado al usuario del sistema con el que estemos lanzando el despliegue en nuestra máquina, permitiendo el utilizar kubectl directamente para trabajar con el clúster de Kubernetes desplegado en EKS. Los dos outputs que se usarán son:
 
-```bash
+```hcl
 terraform output region
 terraform output cluster_name
 ```
