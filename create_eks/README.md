@@ -32,9 +32,20 @@ Nos ubicaremos en el directorio create_eks. Para este caso, las credenciales las
 
 ```bash
 # aws configure
-AWS Access Key ID: <acces_key_usuario_principal> 
+AWS Access Key ID: <access_key_usuario_principal> 
 AWS Secret Access Key: <secret_key_usuario_principal> 
 Default region name: <region_aws> 
 Default output format: json
 ```
-Este comando crea los archivos **~/.aws/credentials** y **~/.aws/config**. Nos centraremos en el archivo credentials. El comando crea un perfil **default** que usaremos para la configuración del provider AWS, como usuario principal para crear todos los componentes. Nos queda el crear el perfil para l uso del usuario creado en el puntode **create_backend**. Para ello editmaos el archivo 
+Este comando crea los archivos **~/.aws/credentials** y **~/.aws/config**. Nos centraremos en el archivo credentials. El comando crea un perfil **default** que usaremos para la configuración del provider AWS, como usuario principal para crear todos los componentes. Nos queda el crear el perfil para l uso del usuario creado en el puntode **create_backend**. Para ello editamos el archivo credentials, dejando el contenido de dicho archivo con una forma como ésta:
+```bash
+[default]
+aws_access_key_id = <access_key_usuario_principal> 
+aws_secret_access_key = <secret_key_usuario_principal> 
+
+[tfstate]
+aws_access_key_id = <access_key_usuario_backend> 
+aws_secret_access_key = <secret_key_usuario_backend>
+```
+
+
