@@ -25,3 +25,23 @@ En este apartado se incluyen los siguientes contenidos:
 - **variables.tf**: incluye la definición de inputs (o variables) que se usa en el despliegue de la infraestructura.
 
 # Cómo lanzarlo
+
+Nos ubicaremos en el directorio create_backend. Para este caso, las credenciales las paseremos como variables de entorno, con lo que se crearán dos variables de este tipo de la siguiente manera:
+
+```bash
+export TF_VAR_access_key=<access_key_usuario_principal>
+export TF_VAR_secret_key=<secret_key_usuario_principal>
+```
+El usuario que se utilizará, es el usuario IAM que se cree antes de empezar a desplegar la infraestructura, se comenta en el README.md principal del repositorio, las características de este usuario.
+
+Una vez creadas estas variables, se procede a lanzar la inicialización para Tertraform lanzando el siguiente comando:
+```hcl
+terraform init
+```
+Este comando descargará todas las librerías necesarias para el provider AWS y los módulos y recursos a utilizar.
+Después de este paso, se elaborará el plan de ejecución y se volcará a una archivo **.out** para tenerlo de base para aplicar los cambios en el despliegue. Para ello se lanza:
+```hcl
+terraform plan -out archivo.out
+```
+
+
