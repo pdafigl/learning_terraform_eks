@@ -67,7 +67,7 @@ terraform plan -out archivo.out
 
 Una vez se dispone del plan de ejecución, se lanza el despliegue:
 
-`` hcl
+``hcl
 terraform apply archivo.out
 `` 
 
