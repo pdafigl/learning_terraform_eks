@@ -13,7 +13,8 @@ En este apartado se crean los siguientes componentes:
 - Clúster EKS.
 - Tres instancias EC2 asociadas al clúster de Kubernetes.
 - Dos grupos de escalado en el que se reparrtirán las instancias creadas. No se cran con reglas de escalado, se tendrían que configurar a posteriori, o incluir el código que las cree.
-- Políticas y roles de IAM para la gestión del clúsclear
+- Políticas y roles de IAM para la gestión del clúster.
+- Archivo Kubeconfig asociado al clúster.
 
 # Contenido
 
@@ -46,6 +47,44 @@ aws_secret_access_key = <secret_key_usuario_principal>
 [tfstate]
 aws_access_key_id = <access_key_usuario_backend> 
 aws_secret_access_key = <secret_key_usuario_backend>
+```:
+
+Recordad que se pueden ver las credenciales del usuario creado para el backend, lanzando el comando **terraform output** desde el directorio **create_backend**
+
+Una vez hecha esta configuración, se lanzará el comando para inicialiar el entorno para el despliegue, haciendo que se descarguen todas las librerías necesarias para los distintos providers utilizados, para las módulos y recursos, etc.El comando a lanzar:
+```hcl
+terraform init
 ```
+
+Para crear el plan de ejecución y hacerlo sobre un archivo **.out** que se usará después para realizar el despliegue, se lanzará:
+```hcl
+terraform plan -out archivo.out
+```
+
+Una vez se dispone del plan de ejecución, se lanza el despliegue:
+`` hcl
+terraform apply archivo.out
+`` 
+
+Al finalizar el despliegue, se mostrarán una serie de salidas por pantalla, asociadas a los outputs definidos en el archivo **output.tf**. Estos valores toman más valor por lo comentado, el estado de este despliegue se usará como entrada de datos para el despliegue de grupos de nodo, y los valores a utilizar se toman de los outputs. Además, hay dos salidas que se usarán para crear un kubeconfig asociado al usuario del sistema con el que estemos lanzando el despliegue en nuestra máquina, permitiendo el utilizar kubectl directamente para trabajar con el clúster de Kubernetes desplegado en EKS. Los dos outputs que se usarán son:
+```bash
+terraform output region
+terraform output cluster_name
+```
+
+Para crear este archivo kubeconfig asociado a nuestro usuario de sistema en nuestra máquina, se lanzará lo siguiente:
+```bash
+aws eks --region $(terraform output region) update-kubeconfig --name $(terraform output cluster_name)
+```
+
+Y ya podremos trabajar con kubectl:
+```bash
+$ kubectl get nodes
+NAME                                       STATUS   ROLES    AGE   VERSION
+ip-10-0-0-141.eu-west-1.compute.internal   Ready    <none>   19m   v1.18.9-eks-d1db3c
+ip-10-0-1-170.eu-west-1.compute.internal   Ready    <none>   19m   v1.18.9-eks-d1db3c
+ip-10-0-1-172.eu-west-1.compute.internal   Ready    <none>   19m   v1.18.9-eks-d1db3c
+```
+
 
 
