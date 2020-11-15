@@ -37,5 +37,4 @@ AWS Secret Access Key: <secret_key_usuario_principal>
 Default region name: <region_aws> 
 Default output format: json
 ```
-
-
+Este comando crea los archivos **~/.aws/credentials** y **~/.aws/config**. Nos centraremos en el archivo credentials. El comando crea un perfil **default** que usaremos para la configuración del provider AWS, como usuario principal para crear todos los componentes. Nos queda el crear el perfil para l uso del usuario creado en el puntode **create_backend**. Para ello editmaos el archivo 
