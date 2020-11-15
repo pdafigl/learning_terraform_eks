@@ -36,3 +36,16 @@ Ahora solo queda desplegar el grupo de nodos lanzando:
 ```bash
 terraform apply archivo.out
 ```
+
+Se pueden ver los nuevos nodos:
+
+```bash
+$ kubectl get nodes
+NAME                                       STATUS   ROLES    AGE   VERSION
+ip-10-0-0-141.eu-west-1.compute.internal   Ready    <none>   56m   v1.18.9-eks-d1db3c
+ip-10-0-1-170.eu-west-1.compute.internal   Ready    <none>   55m   v1.18.9-eks-d1db3c
+ip-10-0-1-172.eu-west-1.compute.internal   Ready    <none>   55m   v1.18.9-eks-d1db3c
+ip-10-0-3-5.eu-west-1.compute.internal     Ready    <none>   70s   v1.18.9-eks-d1db3c
+ip-10-0-4-187.eu-west-1.compute.internal   Ready    <none>   70s   v1.18.9-eks-d1db3c
+``` 
+
