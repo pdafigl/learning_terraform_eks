@@ -43,5 +43,14 @@ Después de este paso, se elaborará el plan de ejecución y se volcará a una a
 ```hcl
 terraform plan -out archivo.out
 ```
+Por último, se lanza el despliegue de la infraestructura y componentes con el cmando:
+```hcl
+terraform apply archivo.out
+```
+Al finalizar el despliegue se mostrarán las salidas de información definidas dentro del archivo **output.tf**. Para poder consultar estos valores, se podrá, accediendo al directorio create_backend, ejecutar el comando **terraform output**, para ver el todos los outputs definidos o **terraform output nombre_output_concreto** para oebtener el valor para uno de los outputs en concreto, en lugar de todos. Por ejemplo:
+```hcl
+terraform output
+terraform output bucket_arn
+```
 
 
