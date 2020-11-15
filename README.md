@@ -27,3 +27,18 @@ Ya que se crearán y gestionarán elementos dentro de todos esos servicios. El u
 # Notas
 - En cada directorio de este repositorio, se incluye un archivo **README.md** en donde se explica el contenido de cada directorio y los pasos necesarios para lanzar cada uno de los apartados del despliegue del clúster de EKS.
 - Para evitar el incluir credenciales en el código, se recurrirán a dos estrategias, para mostrar distintas aleternativas para trabajar con este tipo de casuística. Una de ellas será la de usar variables de entorno, la otra alternativa, será la de utilizar perfiles creados a partir de una configuración base a partir del comando **aws configure**. Existen otras alternativas, como el uso de un gestor de claves como es Hashicorp Vault, por ejemplo.
+
+# Orden de lanzamiento
+
+### Orden para desplegar la infraestructura
+
+En cada apartado se incluyen los pasos a dar para realizar el despliegue de la infraestructura. Para hacerlo en orden debe hacerse:
+
+1. create_backend
+2. create_eks
+3. create_node_group
+
+### Orden para borrado de la infraestructura
+
+Para eliminar los componentes creados, se recurre al comando **terraform destroy** dentro de cada uno de los directorios. El orden en el que se debe ejecutar es el inverso al orden de despliegue de la infraestructura.
+Cabe destacar que, para el borrado de la configuración desplegada para el backend, se ha creado el bucket con protección ante borrado, este componente se debe eliminar de **forma manual** antes de lanzar el **terraform destroy**
