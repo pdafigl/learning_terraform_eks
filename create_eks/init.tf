@@ -19,8 +19,13 @@ terraform {
   }
 }
 
-
 # Creates local variable with EKS cluster name
+resource "random_string" "suffix" {
+  length  = 8
+  special = false
+}
+
+
 locals {
   cluster_name = "${var.project_name}-eks-${random_string.suffix.result}"
 }

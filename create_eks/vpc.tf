@@ -1,14 +1,7 @@
 # Module VPC from https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest
 
-
 # Get availability zones on region
 data "aws_availability_zones" "available" {}
-
-resource "random_string" "suffix" {
-  length  = 8
-  special = false
-}
-
 
 # Create VPC
 module "vpc" {
