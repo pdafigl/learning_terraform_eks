@@ -13,7 +13,7 @@ Para el paso de credenciales, se usará de nuevo perfiles, como para el caso del
 
 En este apartado se incluyen los siguientes contenidos:
 - **ini.tf**: contiene la configuración del provider AWS, la configuración del backend para este punto del despliegue de infraestructura, y la configuración para usar el archivo de estado del despliegue de EKS como datasource para el despliegue del grupo de nodos.
-- **main.t**: contiene el código necesario para llevar a cabo el despliegue el grupo de nodos.
+- **main.tf**: contiene el código necesario para llevar a cabo el despliegue el grupo de nodos.
 - **output.tf**: contiene las definiciones de los outputs del despliegue.
 - **terraform.tfvars**: contiene la asignación de valores para los inputs (o variables).
 - **variables.tf**: contiene la definición de inputs (o variables).
