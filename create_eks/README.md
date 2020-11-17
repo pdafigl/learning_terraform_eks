@@ -4,13 +4,10 @@ Recoge el código necesario para crear un clúster EKS base, con 3 nodos worker.
 
 # Componentes que se crean en este punto:
 En este apartado se crean los siguientes componentes:
-- Una VPC con una serie de subredes, creando una subred en cada una de las zonas de disponbilidad de la región en la que se despliega el clśuter EKS. Se creará en cada zona una subred privada y otra pública. Además crea un internet ateway asociado a la VPC y una tabla de rutas.
+- Una VPC con una serie de subredes, creando una subred en cada una de las zonas de disponbilidad de la región en la que se despliega el clśuter EKS. Se creará en cada zona una subred privada y otra pública. Además crea un NAT Gateway asociado a la VPC y una tabla de rutas.
 - Grupo de seguridad que se asociarán a las instancias.
-- Una IP elástica que se podrá asociar a las máquinas creadas durante el despliegue del clúster, para futuras tareas de mantenimiento facilitando el acceso a las mismas, ya que se crearán solo en la red privada, no tendrá una IP pública.
 - Clúster EKS.
-- Tres instancias EC2 asociadas al clúster de Kubernetes.
-- Dos grupos de escalado en el que se reparrtirán las instancias creadas. No se cran con reglas de escalado, se tendrían que configurar a posteriori, o incluir el código que las cree.
-- Un NAT Gateway sobre la VPC creada.
+- Tres instancias EC2 asociadas al clúster de Kubernetes. Se repartirán en dos grupos de escalado.
 - Políticas y roles de IAM para la gestión del clúster.
 - Archivo Kubeconfig asociado al clúster.
 
