@@ -42,3 +42,10 @@ En cada apartado se incluyen los pasos a dar para realizar el despliegue de la i
 
 Para eliminar los componentes creados, se recurre al comando **terraform destroy** dentro de cada uno de los directorios. El orden en el que se debe ejecutar es el inverso al orden de despliegue de la infraestructura.
 Cabe destacar que, para el borrado de la configuración desplegada para el backend, se ha creado el bucket con protección ante borrado, este componente se debe eliminar de **forma manual** antes de lanzar el **terraform destroy**
+
+# Enlaces de interés
+
+- [Documentación acerca de módulo VPC](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest)
+- [Documentación acerca de módulo EKS](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest)
+- [Documentación acerca del provider Kubernetes](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)
+- [Web de Hashicpor learning módulo EKS](https://learn.hashicorp.com/tutorials/terraform/eks)
